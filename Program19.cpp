@@ -1,3 +1,7 @@
+// WAP in cpp to implement default, parameterized, copy, default argument constructor and destructor using constructor overloading.
+
+// Source Code:-
+
 #include <iostream>
 using namespace std;
 class MyClass {
@@ -54,4 +58,19 @@ int main() {
     // Destructor will be called automatically when objects go out of scope
     return 0;
 }
+
+/* OUTPUT:-
+Default Constructor called
+a: 0, b: 0
+Parameterized Constructor called with values: 5, 15
+a: 5, b: 15
+Constructor with default argument called, a: 7, b: 10
+a: 7, b: 10
+Copy Constructor called, a: 5, b: 15
+a: 5, b: 15
+Destructor called for a: 5, b: 15
+Destructor called for a: 7, b: 10
+Destructor called for a: 5, b: 15
+Destructor called for a: 0, b: 0 
+*/
 
