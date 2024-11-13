@@ -1,66 +1,38 @@
-//wap to implement multi-level inheritance with respect to the student registration//
+//Write a simple c++ program to overload a binary + operator//
 
 #include <iostream>
 using namespace std;
 
-class Student {
-    protected:
-        int studentID;
-        string name;
-
-    public:
-        void setStudentDetails(int id, string n) {
-            studentID = id;
-            name = n;
-        }
-
-        void displayStudentDetails() {
-            cout << "Student ID: " << studentID << endl;
-            cout << "Name: " << name << endl;
-        }
-};
-
-class AcademicDetails : public Student {
-    protected:
-        string course;
-        int year;
-
-    public:
-        void setAcademicDetails(string c, int y) {
-            course = c;
-            year = y;
-        }
-
-        void displayAcademicDetails() {
-            cout << "Course: " << course << endl;
-            cout << "Year: " << year << endl;
-        }
-};
-
-class Registration : public AcademicDetails {
+class Complex {
     private:
-        int registrationNumber;
+        int real, imag;
 
     public:
-        void setRegistrationDetails(int regNum) {
-            registrationNumber = regNum;
+        void setValues(int r, int i) {
+            real = r;
+            imag = i;
         }
-
-        void displayRegistrationDetails() {
-            displayStudentDetails();
-            displayAcademicDetails();
-            cout << "Registration Number: " << registrationNumber << endl;
+        Complex operator + (const Complex &obj) {
+            Complex result;
+            result.real = real + obj.real;
+            result.imag = imag + obj.imag;
+            return result;
+        }
+        void display() {
+            cout << real << " + " << imag << "i" << endl;
         }
 };
 
 int main() {
-    Registration student;
-
-    student.setStudentDetails(101, "Alice");
-    student.setAcademicDetails("Computer Science", 1);
-    student.setRegistrationDetails(2023001);  
-    cout << "Student Registration Details:" << endl;
-    student.displayRegistrationDetails();
+    Complex c1, c2, c3;
+    c1.setValues(3, 5);
+    c2.setValues(2, 4);
+    c3 = c1 + c2;
+    cout << "Sum of complex numbers: ";
+    c3.display();
 
     return 0;
 }
+
+/*OUTPUT:-
+Sum of complex numbers: 5 + 9i*/
